@@ -1,0 +1,32 @@
+﻿<Properties StartupConfiguration="{9CC36DCD-794E-D583-A3D9-776A78E48C2A}|">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="600a4055-541e-4f69-993d-c08f993e56a7" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Grid/Finished/Part3/Scripts/MouseController.cs">
+    <Files>
+      <File FileName="Assets/Grid/Finished/Part3/Scripts/MapManager.cs" Line="4" Column="19" />
+      <File FileName="Assets/Grid/Finished/Part3/Scripts/MouseController.cs" Line="90" Column="34" />
+      <File FileName="Assets/Grid/Finished/Part3/Scripts/CharacterInfo.cs" Line="7" Column="21" />
+      <File FileName="Assets/Grid/Finished/Part3/Scripts/OverlayTile.cs" Line="17" Column="101" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="TacticsBall" expanded="True" selected="True" />
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="Unity" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+</Properties>

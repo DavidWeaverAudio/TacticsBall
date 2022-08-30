@@ -83,9 +83,9 @@
     <Compile Include="Library/PackageCache/com.unity.visualscripting@1.7.6/Runtime/VisualScripting.Core/Reflection/Optimization/StaticActionInvoker_1.cs" />
     <Compile Include="Library/PackageCache/com.unity.visualscripting@1.7.6/Runtime/VisualScripting.Core/Reflection/Optimization/StaticFunctionInvoker_2.cs" />
     <Compile Include="Library/PackageCache/com.unity.visualscripting@1.7.6/Runtime/VisualScripting.Core/Input/MouseButton.cs" />
-    <Compile Include="Library/PackageCache/com.unity.visualscripting@1.7.6/Runtime/VisualScripting.Core/Dependencies/FullSerializer/fsConverter.cs" />
     <Compile Include="Library/PackageCache/com.unity.visualscripting@1.7.6/Runtime/VisualScripting.Core/Utilities/StringUtility.cs" />
     <Compile Include="Library/PackageCache/com.unity.visualscripting@1.7.6/Runtime/VisualScripting.Core/Pooling/ListPool.cs" />
+    <Compile Include="Library/PackageCache/com.unity.visualscripting@1.7.6/Runtime/VisualScripting.Core/Dependencies/FullSerializer/fsConverter.cs" />
     <Compile Include="Library/PackageCache/com.unity.visualscripting@1.7.6/Runtime/VisualScripting.Core/Groups/GraphGroup.cs" />
     <Compile Include="Library/PackageCache/com.unity.visualscripting@1.7.6/Runtime/VisualScripting.Core/Collections/NonNullableList.cs" />
     <Compile Include="Library/PackageCache/com.unity.visualscripting@1.7.6/Runtime/VisualScripting.Core/Graphs/IGraphElementWithDebugData.cs" />
@@ -337,9 +337,9 @@
     <Compile Include="Library/PackageCache/com.unity.visualscripting@1.7.6/Runtime/VisualScripting.Core/Cloning/ISpecifiesCloner.cs" />
     <Compile Include="Library/PackageCache/com.unity.visualscripting@1.7.6/Runtime/VisualScripting.Core/EditorBinding/Inspector/InspectorToggleLeftAttribute.cs" />
     <Compile Include="Library/PackageCache/com.unity.visualscripting@1.7.6/Runtime/VisualScripting.Core/EditorBinding/InspectableAttribute.cs" />
-    <Compile Include="Library/PackageCache/com.unity.visualscripting@1.7.6/Runtime/VisualScripting.Core/Connections/ConnectionCollectionBase.cs" />
     <Compile Include="Library/PackageCache/com.unity.visualscripting@1.7.6/Runtime/VisualScripting.Core/Utilities/ReferenceCollector.cs" />
     <Compile Include="Library/PackageCache/com.unity.visualscripting@1.7.6/Runtime/VisualScripting.Core/Graphs/GraphsExceptionUtility.cs" />
+    <Compile Include="Library/PackageCache/com.unity.visualscripting@1.7.6/Runtime/VisualScripting.Core/Connections/ConnectionCollectionBase.cs" />
     <Compile Include="Library/PackageCache/com.unity.visualscripting@1.7.6/Runtime/VisualScripting.Core/Serialization/ISerializationDependency.cs" />
     <Compile Include="Library/PackageCache/com.unity.visualscripting@1.7.6/Runtime/VisualScripting.Core/Reflection/RuntimeCodebase.cs" />
     <Compile Include="Library/PackageCache/com.unity.visualscripting@1.7.6/Runtime/VisualScripting.Core/Dependencies/FullSerializer/fsObjectAttribute.cs" />

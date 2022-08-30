@@ -56,7 +56,20 @@
     <Analyzer Include="/Applications/Visual Studio.app/Contents/MonoBundle/Addins/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets/Players/CharacterController.cs" />
+    <Compile Include="Assets/Grid/Scripts/OverlayTile.cs" />
+    <Compile Include="Assets/Grid/Scripts/PathFinder.cs" />
+    <Compile Include="Assets/Players/PlayerManager.cs" />
+    <Compile Include="Assets/Grid/Scripts/CharacterInfo.cs" />
+    <Compile Include="Assets/Players/PlayerController.cs" />
+    <Compile Include="Assets/Grid/Directions.cs" />
+    <Compile Include="Assets/Players/Scripts/CreatedPlayer.cs" />
+    <Compile Include="Assets/Grid/Scripts/ArrowTranslator.cs" />
+    <Compile Include="Assets/Teams/Scripts/TeamCreator.cs" />
+    <Compile Include="Assets/Grid/Scripts/MouseController.cs" />
     <Compile Include="Assets/TutorialInfo/Scripts/Readme.cs" />
+    <Compile Include="Assets/Grid/Scripts/MapManager.cs" />
+    <Compile Include="Assets/Grid/Scripts/RangeFinder.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -683,9 +696,17 @@
       <Project>{A3EC29CD-848B-9C55-0E19-B280543EC021}</Project>
       <Name>Unity.VisualScripting.Flow.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.2D.Tilemap.Extras.csproj">
+      <Project>{AAC36200-E40B-BBAC-066F-D71CBFBDE4AC}</Project>
+      <Name>Unity.2D.Tilemap.Extras</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.VSCode.Editor.csproj">
       <Project>{A28C616C-D29E-E6FE-B9A9-7825938B2C38}</Project>
       <Name>Unity.VSCode.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.Tilemap.Editor.csproj">
+      <Project>{A14036A5-612F-80A3-DB71-CE0129F17651}</Project>
+      <Name>Unity.2D.Tilemap.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Notifications.csproj">
       <Project>{32AE4A70-28A4-7AF1-D508-00D2E4C909CD}</Project>
@@ -727,6 +748,10 @@
       <Project>{18EAD25B-FA37-451A-EC6C-371B0C552CF1}</Project>
       <Name>Unity.VisualScripting.SettingsProvider.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.2D.Sprite.Editor.csproj">
+      <Project>{16FBB6A8-B2BD-B7DE-F682-89D57E1B5578}</Project>
+      <Name>Unity.2D.Sprite.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.Subsystem.Registration.csproj">
       <Project>{6E128837-A9A3-B6ED-69D6-9344D84FD10C}</Project>
       <Name>Unity.Subsystem.Registration</Name>
@@ -747,13 +772,17 @@
       <Project>{8A23561F-1BA0-1D4C-5C45-D703847CE1FE}</Project>
       <Name>Unity.Rider.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.VisualScripting.Flow.csproj">
-      <Project>{B57133F0-2F79-2785-71D5-29E38313DA8C}</Project>
-      <Name>Unity.VisualScripting.Flow</Name>
-    </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
       <Project>{59290DD6-A37D-57A6-735E-8924FFA00E09}</Project>
       <Name>UnityEngine.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.Tilemap.Extras.Editor.csproj">
+      <Project>{2BF3E9DB-B443-7D1A-0276-430685386B99}</Project>
+      <Name>Unity.2D.Tilemap.Extras.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.VisualScripting.Flow.csproj">
+      <Project>{B57133F0-2F79-2785-71D5-29E38313DA8C}</Project>
+      <Name>Unity.VisualScripting.Flow</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Notifications.iOS.csproj">
       <Project>{21EC9D9C-390B-3E39-86DC-BAB68225FBAF}</Project>

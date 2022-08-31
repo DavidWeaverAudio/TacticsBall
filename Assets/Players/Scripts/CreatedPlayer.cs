@@ -48,21 +48,7 @@ public class CreatedPlayer : ScriptableObject
     public string Name { get => pname; set => pname = value; }
     public TeamID Team { get => team; set => team = value; }
     public Position Position { get => position; set => position = value; }
-    public int Number { 
-        get => number; 
-        set {
-            Debug.Log("Trying to change player number...");
-            if (PlayerManager.Instance.playerNumber.Contains(value))
-            {
-                Debug.Log("Number already taken");
-            }
-            else
-            {
-                number = value;
-                PlayerManager.Instance.playerNumber.Add(value);
-            }
-        } 
-    }
+    public int Number;
     public int Goals { get => goals; set => goals = value; }
     public int Assists { get => assists; set => assists = value; }
     public int Shots { get => shots; set => shots = value; }

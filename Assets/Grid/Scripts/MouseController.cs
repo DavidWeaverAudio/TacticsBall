@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEditor;
 using static finished3.ArrowTranslator;
 
 namespace finished3
@@ -9,6 +10,8 @@ namespace finished3
     {
         private static MouseController _instance;
         public static MouseController Instance { get { return _instance; } }
+        public OverlayTile checkTile;
+        public OverlayTile tile;
         public Vector2 currentTile;
         public Vector2 startingTile;
         public GameObject cursor;
@@ -200,6 +203,30 @@ namespace finished3
             {
                 item.ShowTile();
             }
+        }
+        public OverlayTile GetTileAtCoordinates(int _x, int _y)
+        {
+            return MapManager.Instance.map[new Vector2Int(_x, _y)];
+        }
+        public void SpawnCharacter(GameObject characterPrefab){
+            character = Instantiate(characterPrefab).GetComponent<CharacterInfo>();        }
+    }
+}
+
+[CustomEditor(typeof(finished3.MouseController))]
+public class MouseControllerEditor : Editor
+{
+    int _x;
+    int _y;
+    public override void OnInspectorGUI()
+    {
+        DrawDefaultInspector();
+
+        finished3.MouseController myScript = (finished3.MouseController)target;
+        _x = EditorGUILayout.IntField("X", _x);
+        _y = EditorGUILayout.IntField("Y", _y);
+        if(GUILayout.Button("Get Tile At Coordinates")){
+            myScript.checkTile = myScript.GetTileAtCoordinates(_x,_y);
         }
     }
 }

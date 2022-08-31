@@ -2,6 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public struct TeamComp
+{
+    public GameObject FL;
+    public GameObject FR;
+    public GameObject BL;
+    public GameObject BR;
+    public GameObject MF;
+    public GameObject GL;
+}
 public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager instance;
@@ -16,7 +26,6 @@ public class PlayerManager : MonoBehaviour
             return instance;
         }
     }
-    public List<int> playerNumber = new List<int>();
     [HideInInspector] public string[] playerNames = new string[]{
     "Abus","Argai Ronso","Auda Guado","Balgerda","Basik Ronso","Berrik","Bickson","Biggs","Blappa",
     "Botta","Datto","Deim","Doram","Durren","Eigaar","Gazna Ronso","Giera Guado","Graav","Irga Ronso","Isken",
@@ -26,11 +35,7 @@ public class PlayerManager : MonoBehaviour
     "Zamzi Ronso","Zazi Guado","Zev Ronso"
     };
 
-    public List<CreatedPlayer> players = new List<CreatedPlayer>();
-
-    public void AddPlayer(CreatedPlayer playerToAdd)
-    {
-        players.Add(playerToAdd);
-    }
-
+    public TeamComp teamComp;
+    public TeamComp opposition;
+    
 }

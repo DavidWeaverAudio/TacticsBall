@@ -26,45 +26,44 @@ public class CharacterController : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        anim.Play("F_IDLE");
     }
-    void Update(){
-        if(currentState == AnimStates.Walk){
-            if(facingDir == FacingDir.Front){
-                if(Input.GetKeyUp(KeyCode.S)){
-                    currentState = AnimStates.Idle;
-                    if (lastState != currentState){
-                        anim.Play("F_IDLE");
-                        lastState = currentState;
-                    }
-                }
-            } else {
-                if(Input.GetKeyUp(KeyCode.W)){
-                    currentState = AnimStates.Idle;
-                    if (lastState != currentState){
-                        anim.Play("B_IDLE");
-                        lastState = currentState;
-                    }
-                }
-            }
+    public void StartWalking(FacingDir facing)
+    {
+        if (anim == null)
+        {
+            return;
         }
-        if (Input.GetKey(KeyCode.W)){
-            currentState = AnimStates.Walk;
-            facingDir = FacingDir.Back;
-            if (lastState != currentState){
-                anim.Play("B_WALK");
-                lastState = currentState;
-            }
+        facingDir = facing;
+
+        if (facingDir == FacingDir.Front)
+        {
+            anim.Play("F_WALK");
         }
-        
-        if (Input.GetKey(KeyCode.S)){
-            currentState = AnimStates.Walk;
-            facingDir = FacingDir.Front;
-            if (lastState != currentState){
-                anim.Play("F_WALK");
-                lastState = currentState;
-            }
+        else
+        {
+            anim.Play("B_WALK");
         }
-        
+        currentState = AnimStates.Walk;
+        lastState = currentState;
+    }
+    public void StopWalking(FacingDir facing)
+    {
+        facingDir = facing;
+        if (anim == null)
+        {
+            return;
+        }
+        if (facing == FacingDir.Front)
+        {
+            anim.Play("F_IDLE");
+        }
+        else
+        {
+            anim.Play("B_IDLE");
+        }
+        currentState = AnimStates.Idle;
+        lastState = currentState;
     }
 
 }

@@ -10,11 +10,12 @@ namespace finished3
         private static MouseController _instance;
         public static MouseController Instance { get { return _instance; } }
         public Vector2 currentTile;
+        public Vector2 startingTile;
         public GameObject cursor;
         public float speed;
         public GameObject characterPrefab;
         public CharacterInfo character;
-        
+        public FacingDir dirToFace;
         private PathFinder pathFinder;
         private RangeFinder rangeFinder;
         private ArrowTranslator arrowTranslator;
@@ -53,11 +54,11 @@ namespace finished3
                 OverlayTile tile = hit.Value.collider.gameObject.GetComponent<OverlayTile>();
                 cursor.transform.position = tile.transform.position;
                 cursor.gameObject.GetComponent<SpriteRenderer>().sortingOrder = tile.transform.GetComponent<SpriteRenderer>().sortingOrder;
-                
+
                 if (rangeFinderTiles.Contains(tile) && !isMoving)
                 {
                     path = pathFinder.FindPath(character.standingOnTile, tile, rangeFinderTiles);
-
+                    
                     foreach (var item in rangeFinderTiles)
                     {
                         MapManager.Instance.map[item.grid2DLocation].SetSprite(ArrowDirection.None);
@@ -67,30 +68,32 @@ namespace finished3
                     {
                         var previousTile = i > 0 ? path[i - 1] : character.standingOnTile;
                         var futureTile = i < path.Count - 1 ? path[i + 1] : null;
-
                         var arrow = arrowTranslator.TranslateDirection(previousTile, path[i], futureTile);
                         path[i].SetSprite(arrow);
                     }
                 }
                 UpdateCurrentTile(tile.grid2DLocation);
-
+                
                 if (Input.GetMouseButtonDown(0))
                 {
                     tile.ShowTile();
-
                     if (character == null)
                     {
                         character = Instantiate(characterPrefab).GetComponent<CharacterInfo>();
                         PositionCharacterOnLine(tile);
                         GetInRangeTiles();
+                        currentTile = tile.grid2DLocation;
+                        dirToFace = directionToFace(tile.grid2DLocation, currentTile);
+
                         currentCharacter = character.GetComponentInChildren<CharacterController>();
-                        currentCharacter.StopWalking(FacingDir.Front);
+                        currentCharacter.StopWalking(dirToFace);
                     }
                     else
                     {
                         isMoving = true;
                         tile.gameObject.GetComponent<OverlayTile>().HideTile();
-                        currentCharacter.StartWalking(FacingDir.Front);
+                        dirToFace = directionToFace(tile.grid2DLocation, currentTile);
+                        currentCharacter.StartWalking(dirToFace);
                     }
                 }
             }
@@ -100,11 +103,48 @@ namespace finished3
                 MoveAlongPath();
             }
         }
-
+        FacingDir directionToFace(Vector2 currentTile, Vector2 startingTile)
+        {
+            FacingDir dir;
+            if (currentTile.x > startingTile.x && currentTile.y > startingTile.y)
+            {
+                dir = FacingDir.BackLeft;
+            }
+            else if (currentTile.x == startingTile.x && currentTile.y > startingTile.y)
+            {
+                dir = FacingDir.BackLeft;
+            }
+            else if (currentTile.x == startingTile.x && currentTile.y < startingTile.y)
+            {
+                dir = FacingDir.FrontRight;
+            }
+            else if (currentTile.x > startingTile.x && currentTile.y < startingTile.y)
+            {
+                dir = FacingDir.BackRight;
+            }
+            else if (currentTile.x < startingTile.x && currentTile.y > startingTile.y)
+            {
+                dir = FacingDir.FrontLeft;
+            }
+            else if (currentTile.x > startingTile.x && currentTile.y == startingTile.y)
+            {
+                dir = FacingDir.BackRight;
+            }
+            else if (currentTile.x < startingTile.x && currentTile.y == startingTile.y)
+            {
+                dir = FacingDir.FrontLeft;
+            }
+            else
+            {
+                dir = FacingDir.FrontRight;
+            }
+            return dir;
+        }
         private void MoveAlongPath()
         {
             var step = speed * Time.deltaTime;
-            currentCharacter.StartWalking(FacingDir.Front);
+            currentCharacter.StartWalking(directionToFace(currentTile, startingTile));
+            
             float zIndex = path[0].transform.position.z;
             character.transform.position = Vector2.MoveTowards(character.transform.position, path[0].transform.position, step);
             character.transform.position = new Vector3(character.transform.position.x, character.transform.position.y, zIndex);
@@ -119,9 +159,11 @@ namespace finished3
             {
                 GetInRangeTiles();
                 isMoving = false;
-                currentCharacter.StopWalking(FacingDir.Front);
-            }
+                dirToFace = directionToFace(currentTile, startingTile);
 
+                currentCharacter.StopWalking(dirToFace);
+                startingTile = currentTile;
+            }
         }
 
         private void PositionCharacterOnLine(OverlayTile tile)

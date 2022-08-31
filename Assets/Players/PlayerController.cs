@@ -12,6 +12,12 @@ public class PlayerController : MonoBehaviour
     public bool playerControlled;
     public CarrierAction currentAction;
     public Directions Dir;
+
+    private void Start()
+    {
+        Debug.Log($"Adding {playerInfo.name} to the playermanager");
+        PlayerManager.Instance.AddPlayer(playerInfo);
+    }
 }
 
 [CustomEditor(typeof(PlayerController))]
